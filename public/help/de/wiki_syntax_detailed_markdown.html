@@ -1,330 +1,512 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-<title>RedmineWikiFormatting (Markdown)</title>
+<title>Wiki Formatierung (Markdown)</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="../wiki_syntax_detailed.css" />
 </head>
 
 <body>
-<h1><a name="1" class="wiki-page"></a>Wiki formatting (Markdown)</h1>
+<h1><a name="1" class="wiki-page"></a>Wiki Formatierung (Markdown)</h1>
 
     <ul class='toc'>
         <li><a href='#2'>Links</a></li>
         <ul>
-            <li><a href='#3'>Redmine links</a></li>
-            <li><a href='#4'>External links</a></li>
+            <li><a href='#2a'>Redmine interne Links</a></li>
+            <li><a href='#2b'>Externe Links</a></li>
+			<li><a href='#2c'>Email Adressen</a></li>
         </ul>
-        <li><a href='#5'>Text formatting</a></li>
+        <li><a href='#3'>Textformatierung</a></li>
         <ul>
-            <li><a href='#6'>Font style</a></li>
-            <li><a href='#7'>Inline images</a></li>
-            <li><a href='#8'>Headings</a></li>
-            <li><a href='#10'>Blockquotes</a></li>
-            <li><a href='#11'>Table of content</a></li>
-            <li><a href='#14'>Horizontal Rule</a></li>
+            <li><a href='#3a'>Akronyme</a></li>
+			<li><a href='#3b'>Schriftarten</a></li>
+			<li><a href='#3c'>Farben</a></li>
+            <li><a href='#3d'>Eingebettete Bilder</a></li>
+            <li><a href='#3e'>&Uuml;berschriften</a></li>
+            <li><a href='#3f'>Abs&auml;tze</a></li>
+			<li><a href='#3g'>Horizontale Linie</a></li>
+			<li><a href='#3h'>Vorformatierter Text</a></li>
+            <li><a href='#3i'>Blockzitate</a></li>
+			<li><a href='#3j'>Ungeordnete Listen</a></li>
+			<li><a href='#3k'>Geordnete Listen</a></li>
+            <li><a href='#3l'>Tabellen</a></li>
+            <li><a href='#3m'>Inhaltsverzeichnis</a></li>
+			<li><a href='#3n'>Fu&szlig;note</a></li>
         </ul>
-        <li><a href='#12'>Macros</a></li>
-        <li><a href='#13'>Code highlighting</a></li>
+        <li><a href='#4'>Makros</a></li>
+        <li><a href='#5'>Code-Hervorhebung</a></li>
     </ul>
 
     <h2><a name="2" class="wiki-page"></a>Links</h2>
 
-        <h3><a name="3" class="wiki-page"></a>Redmine links</h3>
-
-        <p>Redmine allows hyperlinking between resources (issues, changesets, wiki pages...) from anywhere wiki formatting is used.</p>
-        <ul>
-            <li>Link to an issue: <strong>#124</strong> (displays <del><a href="#" class="issue" title="bulk edit doesn't change the category or fixed version properties (Closed)">#124</a></del>, link is striked-through if the issue is closed)</li>
-            <li>Link to an issue including tracker name and subject: <strong>##124</strong> (displays <a href="#" class="issue" title="bulk edit doesn't change the category or fixed version properties (New)">Bug #124</a>: bulk edit doesn't change the category or fixed version properties)</li>
-            <li>Link to an issue note: <strong>#124-6</strong>, or <strong>#124#note-6</strong></li>
-            <li>Link to an issue note within the same issue: <strong>#note-6</strong></li>
-        </ul>
-
-        <p>Wiki links:</p>
-
-        <ul>
-            <li><strong>[[Guide]]</strong> displays a link to the page named 'Guide': <a href="#" class="wiki-page">Guide</a></li>
-            <li><strong>[[Guide#further-reading]]</strong> takes you to the anchor "further-reading". Headings get automatically assigned anchors so that you can refer to them: <a href="#" class="wiki-page">Guide</a></li>
-            <li><strong>[[#further-reading]]</strong> link to the anchor "further-reading" of the current page: <a href="#" class="wiki-page">#further-reading</a></li>
-            <li><strong>[[Guide|User manual]]</strong> displays a link to the same page but with a different text: <a href="#" class="wiki-page">User manual</a></li>
-        </ul>
-
-        <p>You can also link to pages of an other project wiki:</p>
-
-        <ul>
-            <li><strong>[[sandbox:some page]]</strong> displays a link to the page named 'Some page' of the Sandbox wiki</li>
-            <li><strong>[[sandbox:]]</strong> displays a link to the Sandbox wiki main page</li>
-        </ul>
-
-        <p>Wiki links are displayed in red if the page doesn't exist yet, eg: <a href="#" class="wiki-page new">Nonexistent page</a>.</p>
-
-        <p>Links to other resources:</p>
-
-        <ul>
-            <li>Documents:
-                <ul>
-                    <li><strong>document#17</strong> (link to document with id 17)</li>
-                    <li><strong>document:Greetings</strong> (link to the document with title "Greetings")</li>
-                    <li><strong>document:"Some document"</strong> (double quotes can be used when document title contains spaces)</li>
-                    <li><strong>sandbox:document:"Some document"</strong> (link to a document with title "Some document" in other project "sandbox")</li>
-                </ul>
-            </li>
-        </ul>
-
-        <ul>
-            <li>Versions:
-                <ul>
-                    <li><strong>version#3</strong> (link to version with id 3)</li>
-                    <li><strong>version:1.0.0</strong> (link to version named "1.0.0")</li>
-                    <li><strong>version:"1.0 beta 2"</strong></li>
-                    <li><strong>sandbox:version:1.0.0</strong> (link to version "1.0.0" in the project "sandbox")</li>
-                </ul>
-            </li>
-        </ul>
-
-        <ul>
-            <li>Attachments:
-                <ul>
-                    <li><strong>attachment:file.zip</strong> (link to the attachment of the current object named file.zip)</li>
-                    <li>For now, attachments of the current object can be referenced only (if you're on an issue, it's possible to reference attachments of this issue only)</li>
-                </ul>
-            </li>
-        </ul>
-
-        <ul>
-            <li>Changesets:
-                <ul>
-                    <li><strong>r758</strong>                       (link to a changeset)</li>
-                    <li><strong>commit:c6f4d0fd</strong>            (link to a changeset with a non-numeric hash)</li>
-                    <li><strong>svn1|r758</strong>                  (link to a changeset of a specific repository, for projects with multiple repositories)</li>
-                    <li><strong>commit:hg|c6f4d0fd</strong>         (link to a changeset with a non-numeric hash of a specific repository)</li>
-                    <li><strong>sandbox:r758</strong>               (link to a changeset of another project)</li>
-                    <li><strong>sandbox:commit:c6f4d0fd</strong>    (link to a changeset with a non-numeric hash of another project)</li>
-                </ul>
-            </li>
-        </ul>
-
-        <ul>
-             <li>Repository files:
-                <ul>
-                    <li><strong>source:some/file</strong>           (link to the file located at /some/file in the project's repository)</li>
-                    <li><strong>source:some/file@52</strong>        (link to the file's revision 52)</li>
-                    <li><strong>source:some/file#L120</strong>      (link to line 120 of the file)</li>
-                    <li><strong>source:some/file@52#L120</strong>   (link to line 120 of the file's revision 52)</li>
-                    <li><strong>source:"some file@52#L120"</strong> (use double quotes when the URL contains spaces</li>
-                    <li><strong>export:some/file</strong>           (force the download of the file)</li>
-                    <li><strong>source:svn1|some/file</strong>      (link to a file of a specific repository, for projects with multiple repositories)</li>
-                    <li><strong>sandbox:source:some/file</strong>   (link to the file located at /some/file in the repository of the project "sandbox")</li>
-                    <li><strong>sandbox:export:some/file</strong>   (force the download of the file)</li>
-                </ul>
-            </li>
-        </ul>
-
-        <ul>
-            <li>Forums:
-                <ul>
-                    <li><strong>forum#1</strong> (link to forum with id 1</li>
-                    <li><strong>forum:Support</strong> (link to forum named Support)</li>
-                    <li><strong>forum:"Technical Support"</strong> (use double quotes if forum name contains spaces)</li>
-                </ul>
-            </li>
-        </ul>
-
-        <ul>
-            <li>Forum messages:
-                <ul>
-                    <li><strong>message#1218</strong> (link to message with id 1218)</li>
-                </ul>
-            </li>
-        </ul>
-
-        <ul>
-            <li>Projects:
-                <ul>
-                    <li><strong>project#3</strong> (link to project with id 3)</li>
-                    <li><strong>project:some-project</strong> (link to project with name or slug of "some-project")</li>
-                    <li><strong>project:"Some Project"</strong> (use double quotes for project name containing spaces)</li>
-                </ul>
-             </li>
-        </ul>
-
-        <ul>
-            <li>News:
-                <ul>
-                    <li><strong>news#2</strong> (link to news item with id 2)</li>
-                    <li><strong>news:Greetings</strong> (link to news item named "Greetings")</li>
-                    <li><strong>news:"First Release"</strong> (use double quotes if news item name contains spaces)</li>
-                </ul>
-            </li>
-        </ul>
-
-        <ul>
-            <li>Users:
-                <ul>
-                    <li><strong>user#2</strong> (link to user with id 2)</li>
-                    <li><strong>user:jsmith</strong> (Link to user with login jsmith)</li>
-                    <li><strong>@jsmith</strong> (Link to user with login jsmith)</li>
-                </ul>
-            </li>
-        </ul>
-
-        <p>Escaping:</p>
-
-        <ul>
-            <li>You can prevent Redmine links from being parsed by preceding them with an exclamation mark: !</li>
-        </ul>
-
-
-        <h3><a name="4" class="wiki-page"></a>External links</h3>
-
-        <p>URLs (starting with: www, http, https, ftp, ftps, sftp and sftps) and email addresses are automatically turned into clickable links:</p>
-
-<pre>
-http://www.redmine.org, someone@foo.bar
-</pre>
-
-        <p>displays: <a class="external" href="http://www.redmine.org">http://www.redmine.org</a>, <a href="mailto:someone@foo.bar" class="email">someone@foo.bar</a></p>
-
-        <p>If you want to display a specific text instead of the URL, you can use the standard markdown syntax:</p>
-
-<pre>
-[Redmine web site](http://www.redmine.org)
-</pre>
-
-        <p>displays: <a href="http://www.redmine.org" class="external">Redmine web site</a></p>
-
-
-    <h2><a name="5" class="wiki-page"></a>Text formatting</h2>
-
-
-    <p>For things such as headlines, bold, tables, lists, Redmine supports Markdown syntax.  See <a class="external" href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a> for information on using any of these features.  A few samples are included below, but the engine is capable of much more of that.</p>
-
-        <h3><a name="6" class="wiki-page"></a>Font style</h3>
-
-<pre>
-* **bold**
-* *Italic*
-* ***bold italic***
-* _underline_
-* ~~strike-through~~
-</pre>
-
-        <p>Display:</p>
-
-        <ul>
-            <li><strong>bold</strong></li>
-            <li><em>italic</em></li>
-            <li><em><strong>bold italic</strong></em></li>
-            <li><u>underline</u></li>
-            <li><del>strike-through</del></li>
-        </ul>
-
-        <h3><a name="7" class="wiki-page"></a>Inline images</h3>
-
-        <ul>
-            <li><strong>![](image_url)</strong> displays an image located at image_url (markdown syntax)</li>
-            <li>If you have an image attached to your wiki page, it can be displayed inline using its filename: <strong>![](attached_image)</strong></li>
-            <li>Images in your computer's clipboard can be pasted directly using Ctrl-v or Command-v (note that Internet Explorer is not supported).</li>
-            <li>Image files can be dragged onto the text area in order to be uploaded and embedded.</li>
-        </ul>
-
-        <h3><a name="8" class="wiki-page"></a>Headings</h3>
-
-<pre>
-# Heading
-## Subheading
-### Subsubheading
-</pre>
-
-        <p>Redmine assigns an anchor to each of those headings thus you can link to them with "#Heading", "#Subheading" and so forth.</p>
-
-
-        <h3><a name="10" class="wiki-page"></a>Blockquotes</h3>
-
-        <p>Start the paragraph with <strong>&gt;</strong></p>
-
-<pre>
-&gt; Rails is a full-stack framework for developing database-backed web applications according to the Model-View-Control pattern.
-To go live, all you need to add is a database and a web server.
-</pre>
-
-        <p>Display:</p>
-
-        <blockquote>
-                <p>Rails is a full-stack framework for developing database-backed web applications according to the Model-View-Control pattern.<br />To go live, all you need to add is a database and a web server.</p>
-        </blockquote>
-
-
-        <h3><a name="11" class="wiki-page"></a>Table of content</h3>
-
-<pre>
-{{toc}} =&gt; left aligned toc
-{{&gt;toc}} =&gt; right aligned toc
-</pre>
-
-        <h3><a name="14" class="wiki-page"></a>Horizontal Rule</h3>
-
-<pre>
----
-</pre>
-
-    <h2><a name="12" class="wiki-page"></a>Macros</h2>
-
-    <p>Redmine has the following builtin macros:</p>
-
-    <p>
-    <dl>
-      <dt><code>hello_world</code></dt>
-      <dd><p>Sample macro.</p></dd>
-
-      <dt><code>macro_list</code></dt>
-      <dd><p>Displays a list of all available macros, including description if available.</p></dd>
-
-      <dt><code>child_pages</code></dt>
-      <dd><p>Displays a list of child pages. With no argument, it displays the child pages of the current wiki page. Examples:</p>
-      <pre><code>{{child_pages}} -- can be used from a wiki page only
-{{child_pages(depth=2)}} -- display 2 levels nesting only</code></pre></dd>
-
-      <dt><code>include</code></dt>
-      <dd><p>Include a wiki page. Example:</p>
-      <pre><code>{{include(Foo)}}</code></pre>
-      <p>or to include a page of a specific project wiki:</p>
-      <pre><code>{{include(projectname:Foo)}}</code></pre></dd>
-
-      <dt><code>collapse</code></dt>
-      <dd><p>Inserts of collapsed block of text. Example:</p>
-      <pre><code>{{collapse(View details...)
-This is a block of text that is collapsed by default.
-It can be expanded by clicking a link.
-}}</code></pre></dd>
-
-      <dt><code>thumbnail</code></dt>
-      <dd><p>Displays a clickable thumbnail of an attached image. Examples:</p>
-      <pre>{{thumbnail(image.png)}}
-{{thumbnail(image.png, size=300, title=Thumbnail)}}</pre></dd>
-
-      <dt><code>issue</code></dt>
-      <dd><p>Inserts a link to an issue with flexible text. Examples:</p>
-      <pre>{{issue(123)}}                              -- Issue #123: Enhance macro capabilities
-{{issue(123, project=true)}}                -- Andromeda - Issue #123:Enhance macro capabilities
-{{issue(123, tracker=false)}}               -- #123: Enhance macro capabilities
-{{issue(123, subject=false, project=true)}} -- Andromeda - Issue #123</pre></dd>
-    </dl>
-    </p>
-
-    <h2><a name="13" class="wiki-page"></a>Code highlighting</h2>
-
-    <p>Default code highlightment relies on <a href="http://rouge.jneen.net/" class="external">Rouge</a>, a syntax highlighting library written in pure Ruby. It supports many commonly used languages such as <strong>c</strong>, <strong>cpp</strong> (c++), <strong>csharp</strong> (c#, cs), <strong>css</strong>, <strong>diff</strong> (patch, udiff), <strong>go</strong> (golang), <strong>groovy</strong>, <strong>html</strong>, <strong>java</strong>, <strong>javascript</strong> (js), <strong>kotlin</strong>, <strong>objective_c</strong> (objc), <strong>perl</strong> (pl), <strong>php</strong>, <strong>python</strong> (py), <strong>r</strong>, <strong>ruby</strong> (rb), <strong>sass</strong>, <strong>scala</strong>, <strong>shell</strong> (bash, zsh, ksh, sh), <strong>sql</strong>, <strong>swift</strong>, <strong>xml</strong> and <strong>yaml</strong> (yml) languages, where the names inside parentheses are aliases. Please refer to <a href="https://www.redmine.org/projects/redmine/wiki/RedmineCodeHighlightingLanguages" class="external">https://www.redmine.org/projects/redmine/wiki/RedmineCodeHighlightingLanguages</a> for the full list of supported languages.</p>
-
-    <p>You can highlight code at any place that supports wiki formatting using this syntax (note that the language name or alias is case-insensitive):</p>
-
-<pre>
+        <h3><a name="2a" class="wiki-page"></a>Redmine interne Links</h3>
+
+        <p>Redmine erm&ouml;glicht Hyperlinks zwischen Ressourcen (Wiki-Seiten, Probleme, Dokumente, ...) von jedem Ort aus, an dem Textformatierungen verwendet werden.</p>
+        <p>Wiki Links:</p>
+		<ul>
+			<li><strong>&#91;&#91;Guide&#93;&#93;</strong> Zeigt einen Link zu der genannten Seite 'Guide': <a href="/projects/redmine/wiki/Guide" class="wiki-page">Guide</a> an</li>
+			<li><strong>&#91;&#91;Guide#Unterthema&#93;&#93;</strong> f&uuml;hrt zum Anker "Unterthema". &Uuml;berschriften erhalten automatisch Anker, damit Sie auf sie verweisen k&ouml;nnen: <a href="/projects/redmine/wiki/Guide#Unterthema" class="wiki-page">Guide</a></li>
+			<li><strong>&#91;&#91;Guide|Handbuch&#93;&#93;</strong> Zeigt einen Link zu derselben Seite an, jedoch mit anderem Text: <a href="/projects/redmine/wiki/Guide" class="wiki-page">Handbuch</a></li>
+			<li><strong>&#91;&#91;Guide#User-guide|Handbuch&#93;&#93;</strong> Zeigt einen Link zur Kopfzeile auf derselben Seite mit anderem Text an: <a href="/projects/redmine/wiki/Guide#User-guide" class="wiki-page">Handbuch</a></li>
+		</ul>
+		<p>Sie k&ouml;nnen auch auf Seiten des Wikis eines anderen Projekts verlinken (mithilfe der Projektkennung):</p>
+		<ul>
+			<li><strong>&#91;&#91;sandbox:some page&#93;&#93;</strong> Zeigt einen Link zu der genannten Seite 'some page' des Sandbox Wikis</li>
+			<li><strong>&#91;&#91;sandbox:&#93;&#93;</strong> Zeigt einen Link zur Hauptseite des Sandbox-Wikis an</li>
+		</ul>
+		<p>Wiki-Links werden rot angezeigt, wenn die Seite noch nicht vorhanden ist, z. B.: <a href="/projects/redmine/wiki/Nicht_vorhandene_Seite?parent=DeRedmineTextFormattingRedmineLinks" class="wiki-page new">Nicht vorhandene Seite</a>.</p>
+		<p>Links zu anderen Ressourcen:</p>
+		<ul>
+			<li>Tickets:
+				<ul>
+					<li><strong>#124</strong> (Link zu einem Ticket: zeigt <a href="/issues/124" class="issue tracker-1 status-5 priority-4 priority-default closed" title="bulk edit doesn&#x27;t change the category or fixed version properties (Closed)">#124</a>, Der Linktext ist durchgestrichen, wenn das Ticket geschlossen ist)</li>
+					<li><strong>#124-6</strong>, oder <strong>#124#note-6</strong> (Link zu einer Ticket-Notiz: zeigt <a href="/issues/124#note-6" class="issue tracker-1 status-5 priority-4 priority-default closed" title="bulk edit doesn&#x27;t change the category or fixed version properties (Closed)">#124-6</a>, oder <a href="/issues/124#note-6" class="issue tracker-1 status-5 priority-4 priority-default closed" title="bulk edit doesn&#x27;t change the category or fixed version properties (Closed)">#124#note-6</a>)</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>Dokumente:
+				<ul>
+					<li><strong>document#17</strong> (Link zum Dokument mit der ID 17)</li>
+					<li><strong>document:Hallo</strong> (Link zum Dokument mit dem Titel "Hallo")</li>
+					<li><strong>document:"Ein Dokument"</strong> (doppelte Anf&uuml;hrungszeichen k&ouml;nnen verwendet werden, wenn der Dokumenttitel Leerzeichen enth&auml;lt)</li>
+					<li><strong>sandbox:document:"Ein Dokument"</strong> (Link zu einem Dokument mit dem Titel "Ein Dokument" in der Projektkennung "sandbox")</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>Versionen:
+				<ul>
+					<li><strong>version#3</strong> (Link zur Version mit der ID 3)</li>
+					<li><strong>version:1.0.0</strong> (Link zur Version mit dem Namen "1.0.0")</li>
+					<li><strong>version:"1.0 beta 2"</strong> (doppelte Anf&uuml;hrungszeichen k&ouml;nnen verwendet werden, wenn der Versionsname Leerzeichen enth&auml;lt)</li>
+					<li><strong>sandbox:version:1.0.0</strong> (Link zur Version "1.0.0" in der Projektkennung "sandbox")</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>Anh&auml;nge:
+				<ul>
+					<li><strong>attachment:file.zip</strong> (Link zum Anhang des aktuellen Objekts mit dem Namen file.zip)</li>
+					<li><strong>attachment:"file name.zip"</strong> (doppelte Anf&uuml;hrungszeichen k&ouml;nnen verwendet werden, wenn der Dateiname Sonderzeichen enth&auml;lt)</li>
+					<li>Derzeit k&ouml;nnen nur auf Anh&auml;nge des aktuellen Objekts verwiesen werden (innerhalb eines Tickets k&ouml;nnen Sie nur auf dessen Anh&auml;nge verweisen).</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>&Auml;nderungss&auml;tze:
+				<ul>
+					<li><strong>r758</strong> (Link zu einem &Auml;nderungssatz mit der Anzeige <a href="/projects/redmine/repository/revisions/758" class="changeset" title="Search engine now only searches objects the user is allowed to view.">r758</a>)</li>
+					<li><strong>commit:c6f4d0fd</strong> (Link zu einem &Auml;nderungssatz mit einem nicht numerischen Hash)</li>
+					<li><strong>svn1|r758</strong> (Link zu einem &Auml;nderungssatz eines bestimmten Repositorien f&uuml;r Projekte mit mehreren Repositorien)</li>
+					<li><strong>commit:hg|c6f4d0fd</strong> (Link zu einem &Auml;nderungssatz mit einem nicht numerischen Hash eines bestimmten Repositorien)</li>
+					<li><strong>sandbox:r758</strong> (Link zu einem &Auml;nderungssatz eines anderen Projekts)</li>
+					<li><strong>sandbox:commit:c6f4d0fd</strong> (Verkn&uuml;pfung mit einem &Auml;nderungssatz mit einem nicht numerischen Hash einer anderen Projektkennung)</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>Repositorium-Dateien:
+				<ul>
+					<li><strong>source:some/file</strong> (Link zu der Datei unter /some/file im Repositorium des Projekts)</li>
+					<li><strong>source:"some file"</strong> (Link zur Datei mit Sonderzeichen im Pfad)</li>
+					<li><strong>source:some/file@52</strong> (Link zur 52. Revision der Datei)</li>
+					<li><strong>source:some/file@master</strong> (Link zu der Datei im Zweig <em>master</em>)</li>
+					<li><strong>source:some/file#L120</strong> (Link zu Zeile 120 der Datei)</li>
+					<li><strong>source:some/file@52#L120</strong> (Link zu Zeile 120 der Datei in der Revision 52)</li>
+					<li><strong>source:repo_identifier|some/file</strong> (Link zu einer Datei eines bestimmten Repositoriums f&uuml;r Projekte mit mehreren Repositorien)</li>
+					<li><strong>sandbox:source:some/file</strong> (Link zu der Datei in der Projektkennung "sandbox")</li>
+					<li><strong>sandbox:source:repo_identifier|some/file</strong> (Verkn&uuml;pfung mit der Datei eines bestimmten Repositorien in der Projektkennung mit Sonderzeichen im Pfad "sandbox")</li>
+					<li><strong>export:some/file</strong> (Erzwingen des Downloads der Datei)</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>Foren:
+				<ul>
+					<li><strong>forum#2</strong> (Link zum Forum mit der ID 2)</li>
+					<li><strong>forum:Discussion</strong> (Link zum Forum mit dem Namen "Discussion")</li>
+					<li><strong>forum:"Help and more"</strong> (doppelte Anf&uuml;hrungszeichen k&ouml;nnen verwendet werden, wenn der Forenname Leerzeichen enth&auml;lt)</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>Forumsnachrichten:
+				<ul>
+					<li><strong>message#1218</strong> (Link zur Nachricht mit der ID 1218)</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>Neuigkeiten (News)
+				<ul>
+					<li><strong>news#1</strong> (Link zum  Newseintrag mit der ID 1)</li>
+					<li><strong>news:Greetings</strong> (Link zum  Newseintrag mit dem Namen "Greetings")</li>
+					<li><strong>news:"eCookbook first release !"</strong> (doppelte Anf&uuml;hrungszeichen k&ouml;nnen verwendet werden, wenn der Name des Eintrags Leerzeichen enth&auml;lt)</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>Projekte:
+				<ul>
+					<li><strong>project#3</strong> (Link zum Projekt mit der ID 3)</li>
+					<li><strong>project:someproject</strong> (Link zum Projekt mit dem Namen "someproject")</li>
+					<li><strong>project:"Multiple words project"</strong> (doppelte Anf&uuml;hrungszeichen k&ouml;nnen verwendet werden, wenn der Name des Projektes Leerzeichen enth&auml;lt)</li>
+				</ul>
+			</li>
+		</ul>
+		<ul>
+			<li>Benutzer:
+				<ul>
+					<li><strong>user#2</strong> (Link zum Benutzer mit der ID 2)</li>
+					<li><strong>user:jsmith</strong> (Link zum Benutzer mit dem Loginnamen: jsmith")</li>
+					<li><strong>@jsmith</strong> (Link zum Benutzer mit dem Loginnamen: "jsmith")</li>
+				</ul>
+			</li>
+		</ul>
+		<p>Escaping:</p>
+		<ul>
+			<li>Sie k&ouml;nnen verhindern, dass Redmine-Links analysiert werden, indem Sie ihnen ein Ausrufezeichen voranstellen: !</li>
+			</ul>
+		</p>
+
+        <h3><a name="2b" class="wiki-page"></a>Externe Links</h3>
+
+        <p>URLs (http, https, ftp and ftps) werden automatisch in anklickbare Links umgewandelt:</p>
+		<ul>
+			<li><strong>http&#58;//www.redmine.org</strong> -- Externer Link zur Redmine Webseite: <a class="external" href="http://www.redmine.org">http://www.redmine.org</a></li>
+		</ul>
+		<p>URLs k&ouml;nnen auch anderen Text als den Link selbst verwenden:</p>
+		<ul>
+			<li><strong>&#91;Redmine Webseite&#93;(http&#58;//www.redmine.org)</strong> -- Externer Link mit anderem Text: <a href="http://www.redmine.org" class="external">Redmine Webseite</a></li>
+			<li><strong>&#91;!&#91;Redmine Webseite&#93;(http&#58;//www.redmine.org/attachments/7069/Redmine_logo.png)&#93;(http&#58;//www.redmine.org)</strong> -- Externes Bild mit einem Titel, der auf eine URL verweist:</li>
+		</ul>
+		<p style="text-align:center;"><a href="http://www.redmine.org"><img src="http://www.redmine.org/attachments/7069/Redmine_logo.png" title="Redmine web site" alt="Redmine web site" /></a></p>
+
+		<h3><a name="2c" class="wiki-page"></a>E-Mail Adressen</h3>
+
+		<p>E-Mail Adressen werden automatisch in anklickbare Links umgewandelt:</p>
+		<ul>
+			<li><strong>jemand&#64;foo.bar</strong> -- Link zu einer Email Addresse: <a class="email" href="mailto:jemand@foo.bar">jemand@foo.bar</a></li>
+			<li><strong>&#91;Email jemand&#93;(mailto&#58;jemand&#64;foo.bar)</strong> -- Email link mit anderem Text: <a href="mailto:jemand@foo.bar">Email</a></li>
+		</ul>
+		<p>Komplexere E-Mail-Anweisungen k&ouml;nnen zu einem E-Mail-Link hinzugef&uuml;gt werden. Ein Standardthema, ein Standardtext und CC-Informationen k&ouml;nnen definiert werden. Beachten Sie, dass Leerzeichen in einem dieser Felder durch den Code %20 ersetzt werden m&uuml;ssen.</p>
+		<ul>
+			<li><strong>&#91;Email an Webmaster und Admin&#93;(mailto&#58;webmaster&#64;foo.bar?cc=admin&#64;foo.bar)</strong> -- Email an den Webmaster und als CC an den Admin:  <a href="mailto:webmaster@foo.bar?cc=admin@foo.bar">Email an Webmaster und Admin</a></li>
+			<li><strong>&#91;Email an Support f&uuml;r Hilfe&#93;(mailto&#58;support&#64;foo.bar?subject=Webseiten%20Hilfe)</strong> -- Email Link mit dem Titel "Webseiten Hilfe": <a href="mailto:support@foo.bar?subject=Webseiten%20Hilfe">Email an Support f&uuml;r Hilfe</a></li>
+			<li><strong>&#91;Email an Support f&uuml;r Hilfe&#93;(mailto&#58;support&#64;foo.bar?subject=Webseiten%20Hilfe&#38;body=Mein%20Problem%20ist%20)</strong> -- Email Link mit dem Titel "Webseiten Hilfe" und Standardtext im Nachrichtenbereich: <a href="mailto:support@foo.bar?subject=Webseiten%20Hilfe&#38;body=Mein%20Problem%20ist%20">Email an Support f&uuml;r Hilfe</a></li>
+		</ul>
+
+    <h2><a name="3" class="wiki-page"></a>Textformatierung</h2>
+
+		<p>F&uuml;r &Uuml;berschriften, Fettdruck, Tabellen, Listen unterst&uuml;tzt Redmine den <a href="http://de.wikipedia.org/wiki/Markdown" class="external">Markdown-Syntax</a>. Informationen zur Verwendung dieser Funktionen finden Sie unter <a class="external" href="http://daringfireball.net/projects/markdown/syntax">http://daringfireball.net/projects/markdown/syntax</a>, <a class="external" href="http://agea.github.io/tutorial.md/">http://agea.github.io/tutorial.md/</a>, <a class="external" href="http://stackoverflow.com/editing-help">http://stackoverflow.com/editing-help</a>. Einige Beispiele sind unten aufgef&uuml;hrt, aber das System kann noch viel mehr. F&uuml;r Konvertierungen siehe <a href="http://pandoc.org" class="external">Pandoc</a>. Der <a href="https://github.com/alminium/redmine_redcarpet_formatter" class="external">Redcarpet-Formatierer</a> wird verwendet.</p>
+
+		<h3><a name="3a" class="wiki-page"></a>Akronyme</h3>
+		
+		<p>Wird von Markdown nicht unterst&uuml;tzt</p>
+		
+        <h3><a name="3b" class="wiki-page"></a>Schriftarten</h3>
+
+		<pre><code>
+* **fett**
+* *kursiv* 
+* ***fett kursiv***
+* &lt;ins&gt;unterstrichen&lt;/ins&gt;
+* &lt;del&gt;durchgestrichen&lt;/del&gt;
+* Plain &lt;sup&gt;hochgestellt&lt;/sup&gt;
+* Plain &lt;sub&gt;tiefgestellt&lt;/sub&gt;
+* `Schriftart monospace`
+* normal **fett** *kursiv* normal;E=mc&lt;sup&gt;2&lt;/sup&gt;
+* normal&lt;strong&gt;fett&lt;/strong&gt;&lt;em&gt;kursiv&lt;/em&gt;normal;E=mc&lt;sup&gt;2&lt;/sup&gt;
+* Escaping: \*\*fett\*\* \*kursiv\* \`inlinemono\`
+* &lt;pre&gt;**Einige Linien**      Ein [Link](http://www.redmine.org)&lt;/pre&gt;
+* &lt;pre&gt;\*\*Einige Linien\*\*      Ein \[Link](http\://www\.redmine\.org)&lt;/pre&gt;
+		</code></pre>
+		<p>Darstellung:</p>
+		<ul>
+			<li><strong>fett</strong></li>
+			<li><em>kursiv</em></li>
+			<li><strong><em>fett kursiv</em></strong></li>
+			<li><ins>unterstrichen</ins></li>
+			<li><del>durchgestrichen</del></li>
+			<li>Normal <sup>hochgestellt</sup></li>
+			<li>Normal <sub>tiefgestellt</sub></li>
+			<li><code>Schriftart Monospace</code></li>
+			<li>Normal <strong>fett</strong> <em>kursiv</em> normal;E=mc <sup>2</sup></li>
+			<li>Normal<strong>fett</strong><em>kursiv</em>normal;E=mc<sup>2</sup></li>
+			<li>Escaping: **fett** *kursiv* `inlinemono` </li>
+			<li><pre><strong>Einige Linien</strong>      Ein <a href="http://www.redmine.org" class="external">Link</a></pre></li>
+			<li><pre>**Einige Linien**      Ein [Link](http://www.redmine.org)</pre></li>
+		</ul>
+		<p><b>Hinweis:</b> HTML-Tags m&uuml;ssen die inneren HTML-Tags verwenden d&uuml;rfen (&lt;strong&gt;, &lt;em&gt;, &lt;ins&gt;, &lt;del&gt;, &lt;sup&gt;, &lt;sub&gt;).</p>
+		
+		<h3><a name="3c" class="wiki-page"></a>Farben</h3>
+		
+		<pre><code>
+* &lt;span style="color:red"&gt;Rot&lt;/span&gt; &lt;span style="color:green"&gt;Gr&uuml;n&lt;/span&gt; &lt;span style="color:yellow"&gt;Gelb&lt;/span&gt; &lt;span style="color:#82B6E1"&gt;bl&auml;ulich&lt;/span&gt;
+* &lt;span style="color:red"&gt;Rot&lt;/span&gt;&lt;span style="color:green"&gt;Gr&uuml;n&lt;/span&gt;&lt;span style="color:yellow"&gt;Gelb&lt;/span&gt;&lt;span style="color:#82B6E1"&gt;bl&auml;ulich&lt;/span&gt;
+* &lt;span style="background-color:lightgreen"&gt;Hellgr&uuml;ner Hintergrund&lt;/span&gt; &lt;span style="background-color:yellow"&gt;Gelber Hintergrund&lt;/span&gt;
+* &lt;span style="background-color:lightgreen"&gt;Hellgr&uuml;ner Hintergrund&lt;/span&gt;&lt;span style="background-color:yellow"&gt;Gelber Hintergrund&lt;/span&gt;
+		</code></pre>
+		<p>Anzeige:</p>
+		<ul>
+			<li><span style="color:red;">Rot</span> <span style="color:green;">Gr&uuml;n</span> <span style="color:yellow;">Gelb</span> <span style="color:#82B6E1;">Bl&auml;ulich</span></li>
+			<li><span style="color:red;">Rot</span><span style="color:green;">Gr&uuml;n</span><span style="color:yellow;">Gelb</span><span style="color:#82B6E1;">Bl&auml;ulich</span></li>
+			<li><span style="background:lightgreen;">Hellgr&uuml;nder Hintergrund</span> <span style="background:yellow;">Gelber Hintergrund</span></li>
+			<li><span style="background:lightgreen;">Hellgr&uuml;ner Hintergrund</span><span style="background:yellow;">Gelber Hintergrund</span></li>
+		</ul>
+		<p><b>Hinweis:</b> HTML-Tags m&uuml;ssen das innere HTML-Tag (&lt;span&gt;) verwenden d&uuml;rfen.</p>
+
+		<h3><a name="3d" class="wiki-page"></a>Eingebettete Bilder</h3>
+
+		<ul>
+			<li><strong>![](image_url)</strong> Zeigt ein Bild an, das sich unter <code>image_url</code> befindet (Textile Syntax)</li>
+			<li><strong>![alt text](image_url "Bildtitel")</strong> Zeigt ein Bild mit einem <code>Alt/Titel</code>-Attribut an</li>
+			<li><strong>[![](image_url)](URL)</strong> Zeigt ein Bild von <code>image_url</code> mit hinzugef&uuml;gter Link-URL an</li>
+		</ul>
+		<p>Wenn Sie ein Bild an Ihre Wiki-Seite angeh&auml;ngt haben, kann es unter Verwendung des Dateinamens im Inhalt angezeigt werden: <strong>![](attached_image.png)</strong></p>
+		<p>Zum jetzigen Zeitpunkt hat Markdown keine Syntax zum Festlegen der Abmessungen eines Bildes. Wenn dies f&uuml;r Sie wichtig ist, k&ouml;nnen Sie regul&auml;re HTML-Tags &lt;img&gt; verwenden.</p>
+		<ul>
+			<li>&lt;img style="float:right" src="URL"/&gt;</li>
+			<li>&lt;img style="width:100%" src="attached_image.png"/&gt;</li>
+		</ul>
+		<p><b>Hinweis:</b> HTML-Tags m&uuml;ssen das HTML-Tag (&lt;img&gt;) verwenden d&uuml;rfen.</p>
+
+        <h3><a name="3e" class="wiki-page"></a>&Uuml;berschriften</h3>
+
+		<pre><code>
+# Haupt&uuml;berschrift
+
+## Sekund&auml;re &Uuml;berschrift
+
+### Terti&auml;re &Uuml;berschrift
+
+oder 
+
+Haupt&uuml;berschrift
+================
+
+Sekund&auml;re &Uuml;berschrift
+---------------------
+		</code></pre>
+		<p>Redmine weist jeder dieser &Uuml;berschriften einen Anker zu, sodass Sie sie mit <code>"#Haupt&uuml;berschrift", "#Sekund&auml;re &Uuml;berschrift"</code> usw. verkn&uuml;pfen k&ouml;nnen.</p>
+
+		<h3><a name="3f" class="wiki-page"></a>Abs&auml;tze</h3>
+
+		<p>Markdown unterst&uuml;tzt nicht die Ausrichtung eines Absatzes. Verwenden Sie bei Bedarf &lt;div> -Tags.</p>
+		<pre><code>
+Links ausgerichtet
+&lt;div style="padding-left:1em;"&gt;
+left ident 1em
+&lt;/div&gt;
+
+&lt;div style="padding-left:2em;"&gt;
+Linker Einzug 2em
+sowie f&uuml;r folgende Zeilen
+&lt;/div&gt;
+
+&lt;div style="text-align:right;"&gt;
+Rechts ausgerichtet
+&lt;/div&gt;
+
+&lt;div style="padding-right:3em;text-align:right;"&gt;
+Rechter Einzug 3em
+&lt;/div&gt;
+
+&lt;div style="text-align:center;"&gt;
+Dies ist ein zentrierter Absatz.
+&lt;/div&gt;
+		</code></pre>
+		<p>Anzeige:</p>
+		<p>Links ausgerichtet</p>
+		<p style="padding-left:1em;">Linker Einzug 1em</p>
+		<p style="padding-left:2em;">Linker Einzug 2em<br />sowie f&uuml;r folgende Zeilen</p>
+		<p style="text-align:right;">rechts ausgerichtet</p>
+		<p style="padding-right:3em;text-align:right;">Rechter Einzug 3em</p>
+		<p style="text-align:center;">Dies ist ein zentrierter Absatz.</p>
+		<p><b>Hinweis:</b> HTML-Tags m&uuml;ssen das HTML-Tag (&lt;div&gt;) verwenden d&uuml;rfen.</p>
+
+		<h3><a name="3g" class="wiki-page"></a>Horizontale Linie</h3>
+
+		<p><code>----</code></p>
+		<p>Anzeige:</p>
+		<hr />
+
+		<h3><a name="3h" class="wiki-page"></a>Vorformatierter Text</h3>
+
+		<pre> &lt;pre&gt;**Dieser Text wird nicht fett angezeigt**&lt;/pre&gt; </pre>
+		<p>Anzeige:</p>
+		<pre> *Dieser Text wird nicht fett angezeigt* </pre>
+
+		<h3><a name="3i" class="wiki-page"></a>Blockzitate</h3>
+
+		<p>Sie k&ouml;nnen <code>></code> am Anfang jeder Zeile verwenden und sie f&uuml;r verschachtelte Anf&uuml;hrungszeichen stapeln:</p>
+		<pre>
+&gt;&gt;Rails ist ein Full-Stack-Framework f&uuml;r die Entwicklung datenbankgest&uuml;tzter Webanwendungen nach dem Model-View-Control-Muster.
+&gt;&gt;Um live zu gehen, m&uuml;ssen Sie lediglich eine Datenbank und einen Webserver hinzuf&uuml;gen.
+&gt;Super!
+		</pre>
+		<p>Anzeige:</p>
+		<blockquote style="font-style: italic;border-left: 3px solid #e0e0e0;padding-left: 0.6em;margin-left: 2.4em;">
+			<blockquote style="font-style: italic;border-left: 3px solid #e0e0e0;padding-left: 0.6em;margin-left: 2.4em;">
+				<p>Rails ist ein Full-Stack-Framework f&uuml;r die Entwicklung datenbankgest&uuml;tzter Webanwendungen nach dem Model-View-Control-Muster.<br />Um live zu gehen, m&uuml;ssen Sie lediglich eine Datenbank und einen Webserver hinzuf&uuml;gen.</p>
+			</blockquote>
+			<p>Super!</p>
+		</blockquote>
+		
+		<h3><a name="3j" class="wiki-page"></a>Ungeordnete Listen</h3>
+
+       <pre>
+* Punkt 1
+* Punkt 2
+  * Punkt 21 (Einr&uuml;ckung mit zwei Leerzeichen)
+  * Punkt 22
+* Punkt 3
+		</pre>
+		<p>Anzeige:</p>
+		<ul>
+			<li>Punkt 1</li>
+			<li>Punkt 2
+				<ul>
+					<li>Punkt 21</li>
+					<li>Punkt 22</li>
+				</ul>
+			</li>
+			<li>Punkt 3</li>
+		</ul>
+
+		<h3><a name="3k" class="wiki-page"></a>Geordnete Listen</h3>
+
+		<pre>
+# Punkt 1
+# Punkt 2
+# Punkt 3
+  # Punkt 3.1 (Einr&uuml;ckung mit zwei Leerzeichen)
+  # Punkt 3.2
+		</pre>
+		<p>Anzeige:</p>
+		<ol>
+			<li>Punkt 1</li>
+			<li>Punkt 2</li>
+			<li>Punkt 3
+				<ol>
+					<li>Punkt 3.1</li>
+					<li>Punkt 3.2</li>
+				</ol>
+			</li>
+		</ol>
+		<p>Beachten Sie, dass die tats&auml;chlichen Zahlen, die Sie zum Markieren der Liste verwenden, keinen Einfluss auf die Ausgabe haben.</p>
+
+		<h3><a name="3l" class="wiki-page"></a>Tabellen</h3>
+		<pre>
+|BenutzerID (rechts ausgerichtet)|Name (Links ausgerichtet)|Gruppe (zentriert)|
+|-------------------:|:----------------|:------------------:|
+|2                   |John Smith       |                    |
+|3                   |Dave Lopper      |A Team              |
+|4                   |Robert Hill      |B Team              |
+		</pre>
+		<p>Anzeige(Alle multiplen Leerzeichen werden durch 1 Leerzeichen ersetzt):</p>
+		<table style="border: 1px solid #bbb;padding: 4px" rules="all">
+			<tr>
+				<th style="text-align:right;">BenutzerID (rechts ausgerichtet</th>
+				<th style="text-align:left;">Name (links ausgerichtet</th>
+				<th style="text-align:center;">Group (zentriert)</th>
+			</tr>
+			<tr>
+				<td style="text-align:right;">2                    </td>
+				<td style="text-align:left;">John Smith        </td>
+				<td>                        </td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">3                    </td>
+				<td style="text-align:left;">Dave Lopper       </td>
+				<td style="text-align:center;">A Team              </td>
+			</tr>
+			<tr>
+				<td style="text-align:right;">4                    </td>
+				<td style="text-align:left;">Robert Hill       </td>
+				<td style="text-align:center;">B Team              </td>
+			</tr>
+		</table>
+
+	   <h3><a name="3m" class="wiki-page"></a>Inhaltsverzeichnis</h3>
+
+		<pre><code>
+{{toc}} =&gt; Links ausgerichtetes Inhaltsverzeichnis
+{{&gt;toc}} =&gt; Rechts ausgerichtetes Inhaltsverzeichnis
+		</code></pre>
+		<p>Bitte beachten Sie, dass das <code>toc</code>-Tag eine leere Zeile dar&uuml;ber und darunter und keinen anderen Text davor und danach ben&ouml;tigt.</p>
+		<p>Beispiel:</p>
+		<pre><code>
+h1. Seiten&uuml;berschrift
+
+h2. Ein Thema
+
+{{toc}}
+
+h2. Ein weiteres Thema
+		</code></pre>
+
+        <h3><a name="3n" class="wiki-page"></a>Fu&szlig;note</h3>
+
+		<p>Eine Fußnote funktioniert sehr &auml;hnlich wie ein Link im Referenzstil: Sie besteht aus einer Markierung neben dem Text, z. <pre>Dies ist ein Satz.[^1]</pre> und einer Fußnotendefinition in einer separaten Zeile an einer beliebigen Stelle im Dokument, z. B. <pre>[^1]:Dies ist eine Fußnote.</pre></p>
+
+
+    <h2><a name="4" class="wiki-page"></a>Makros</h2>
+
+		<p>Redmine enth&auml;lt ein Makrosystem, mit dem Sie benutzerdefinierte Funktionen hinzuf&uuml;gen k&ouml;nnen, um dynamischen Inhalt in formatierten Text einzuf&uuml;gen. Sie k&ouml;nnen lernen, wie Sie Ihre eigenen Makros in <a href="/projects/redmine/wiki/DeRedmineMacros?parent=DeRedmineTextFormattingMarkdown" class="wiki-page new">Redmine Makros</a> schreiben. Redmine enth&auml;lt auch einige integrierte Makros:</p>
+		<p><dl><dt><code>hello_world</code></dt>
+		<dd><p>Beispiel Makro.</p></dd>
+		
+		<dt><code>macro_list</code></dt>
+		<dd><p>Zeigt eine Liste aller verf&uuml;gbaren Makros an, einschließlich einer Beschreibung, falls verf&uuml;gbar.</p></dd>
+		
+		<dt><code>child_pages</code></dt><dd><p>Zeigt eine Liste der untergeordneten Seiten an. Ohne Argument werden die untergeordneten Seiten der aktuellen Wiki-Seite angezeigt. Beispiele:</p>
+		<pre><code>
+!{{child_pages}} -- kann nur von einer Wiki-Seite aus verwendet werden
+!{{child_pages(depth=2)}} -- Nur Verschachtelung mit 2 Ebenen anzeigen
+		</code></pre></dd>
+		
+		<dt><code>include</code></dt>
+		<dd><p>Inkludiert eine Wiki-Seite an die aktuelle Stelle. Beispiel:</p>
+		<pre><code>!{{include(Foo)}}</code></pre>
+		<p>oder um eine Seite eines bestimmten Projekt-Wikis einzubinden:</p>
+		<pre><code>!{{include(projectname:Foo)}}</code></pre></dd>
+		
+		<dt><code>collapse</code></dt><dd><p>Einf&uuml;gungen von reduzierten Textbl&ouml;cken. Beispiel:</p>
+		<pre><code>{{collapse(Siehe Details...)
+Dies ist ein Textblock, der standardm&auml;ßig reduziert ist.
+Sie kann durch Anklicken eines Links erweitert werden.}}
+		</code></pre></dd>
+		
+		<dt><code>thumbnail</code></dt><dd><p>Zeigt eine anklickbare Miniaturansicht eines eingebetteten Bildes an. Beispiele:</p>
+		<pre>
+{{thumbnail(image.png)}}
+{{thumbnail(image.png, size=300, title=Thumbnail)}}
+		</pre></dd><dt>
+		
+		<dt><code>issue</code></dt>
+		<dd><p>F&uuml;gt einen Link zu einem Problem mit flexiblem Text ein. Beispiele:</p>
+		<pre>
+{{issue(123)}}                              -- Aufgabe #123: Erweiterung der Makrofunktion
+{{issue(123, project=true)}}                -- Andromeda - Aufgabe #123:Erweiterung der Makrofunktion
+{{issue(123, tracker=false)}}               -- #123: Erweiterung der Makrofunktion
+{{issue(123, subject=false, project=true)}} -- Andromeda - Aufgabe #123
+		</pre></dd>
+		</dl></p>
+
+<h2><a name="5" class="wiki-page"></a>Code-Hervorhebung</h2>
+
+		<p>Die Standardcode-Hervorhebung basiert auf "Rouge": http: //rouge.jneen.net/, einer in reinem Ruby geschriebenen Syntax-Hervorhebungsbibliothek. Es unterst&uuml;tzt viele h&auml;ufig verwendete Sprachen wie <strong>c</strong>, <strong>cpp</strong> (c++), <strong>csharp</strong> (c#, cs), <strong>css</strong>, <strong>diff</strong> (patch, udiff), <strong>go</strong> (golang), <strong>groovy</strong>, <strong>html</strong>, <strong>java</strong>, <strong>javascript</strong> (js), <strong>kotlin</strong>, <strong>objective_c</strong> (objc), <strong>perl</strong> (pl), <strong>php</strong>, <strong>python</strong> (py), <strong>r</strong>, <strong>ruby</strong> (rb), <strong>sass</strong>, <strong>scala</strong>, <strong>shell</strong> (bash, zsh, ksh, sh), <strong>sql</strong>, <strong>swift</strong>, <strong>xml</strong> and <strong>yaml</strong> (yml) , wobei die Namen in Klammern die Aliase sind.</p>
+		<p>Mit dieser Syntax k&ouml;nnen Sie Code in Ihrer Wiki-Seite hervorheben:</p>
+		<pre><code>
 ``` ruby
-  Place your code here.
-```
-</pre>
 
-    <p>Example:</p>
+   Geben Sie hier Ihren Code ein.
+
+```
+		</code></pre>
+		<p>Beispiel:</p>
 
 <pre><code class="ruby syntaxhl"><span class="c1"># The Greeter class</span>
 <span class="k">class</span> <span class="nc">Greeter</span>
@@ -337,5 +519,6 @@ It can be expanded by clicking a link.
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre>
+  
 </body>
 </html>
